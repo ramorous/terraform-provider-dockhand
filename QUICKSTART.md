@@ -18,7 +18,7 @@ Add to your `terraform.tf`:
 terraform {
   required_providers {
     dockhand = {
-      source  = "finsys/dockhand"
+      source  = "ramorous/dockhand"
       version = "~> 0.1"
     }
   }
@@ -34,7 +34,7 @@ terraform init
 ### Option 2: Building from Source
 
 ```bash
-git clone https://github.com/finsys/terraform-provider-dockhand.git
+git clone https://github.com/ramorous/terraform-provider-dockhand.git
 cd terraform-provider-dockhand
 make build
 make install
@@ -48,7 +48,7 @@ Create a `provider.tf` file:
 terraform {
   required_providers {
     dockhand = {
-      source = "finsys/dockhand"
+      source = "ramorous/dockhand"
     }
   }
 }
@@ -278,7 +278,7 @@ Verify:
 
 ## Getting Help
 
-- [GitHub Issues](https://github.com/finsys/terraform-provider-dockhand/issues)
+- [GitHub Issues](https://github.com/ramorous/terraform-provider-dockhand/issues)
 - [Dockhand Documentation](https://dockhand.pro/manual)
 - [Terraform Documentation](https://www.terraform.io/docs)
 

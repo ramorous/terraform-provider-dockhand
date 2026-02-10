@@ -11,7 +11,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
-	"github.com/finsys/terraform-provider-dockhand/internal/client"
+	"github.com/ramorous/terraform-provider-dockhand/internal/client"
 )
 
 // Ensure the implementation defined in this package is a Provider.

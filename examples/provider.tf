@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     dockhand = {
-      source  = "finsys/dockhand"
+      source  = "ramorous/dockhand"
       version = "~> 0.1"
     }
   }

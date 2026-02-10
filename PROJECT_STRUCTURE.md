@@ -105,7 +105,7 @@ terraform-provider-dockhand  # Main binary
 
 ~/.terraform.d/plugins/
 └── registry.terraform.io/
-    └── finsys/
+    └── ramorous/
         └── dockhand/
             └── 0.1.0/
                 └── linux_amd64/

@@ -1,4 +1,4 @@
-module github.com/finsys/terraform-provider-dockhand
+module github.com/ramorous/terraform-provider-dockhand
 
 go 1.24.0
 

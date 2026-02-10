@@ -22,7 +22,7 @@ A comprehensive Terraform provider for managing Docker resources through the [Do
 
 ```bash
 # Clone the repository
-git clone https://github.com/finsys/terraform-provider-dockhand.git
+git clone https://github.com/ramorous/terraform-provider-dockhand.git
 cd terraform-provider-dockhand
 
 # Build the provider
@@ -46,7 +46,7 @@ make doc
 terraform {
   required_providers {
     dockhand = {
-      source  = "finsys/dockhand"
+      source  = "ramorous/dockhand"
       version = "~> 0.1"
     }
   }
@@ -428,4 +428,4 @@ For questions or support, visit [Dockhand Documentation](https://dockhand.pro/ma
 For issues, feature requests, or questions:
 - Open an issue on GitHub
 - Check the [Dockhand Documentation](https://dockhand.pro/manual)
-- Visit the [Dockhand GitHub Repository](https://github.com/Finsys/dockhand)
+- Visit the [Dockhand GitHub Repository](https://github.com/ramorous/dockhand)

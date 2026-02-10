@@ -5,7 +5,7 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
-	"github.com/finsys/terraform-provider-dockhand/internal/client"
+	"github.com/ramorous/terraform-provider-dockhand/internal/client"
 )
 
 var _ datasource.DataSource = &NetworksDataSource{}

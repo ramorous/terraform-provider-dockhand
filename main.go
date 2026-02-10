@@ -6,7 +6,7 @@ import (
 	"log"
 
 	"github.com/hashicorp/terraform-plugin-framework/providerserver"
-	"github.com/finsys/terraform-provider-dockhand/internal/provider"
+	"github.com/ramorous/terraform-provider-dockhand/internal/provider"
 )
 
 // Run the docs generation tool, check its repository for more information on how to use it.
@@ -25,7 +25,7 @@ func main() {
 	flag.Parse()
 
 	opts := providerserver.ServeOpts{
-		Address: "registry.terraform.io/finsys/dockhand",
+		Address: "registry.terraform.io/ramorous/dockhand",
 		Debug:   debug,
 	}
 

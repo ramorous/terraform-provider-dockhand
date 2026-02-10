@@ -62,7 +62,7 @@ make build
 make install
 ```
 
-This installs the provider to `~/.terraform.d/plugins/registry.terraform.io/finsys/dockhand/0.1.0/linux_amd64/`
+This installs the provider to `~/.terraform.d/plugins/registry.terraform.io/ramorous/dockhand/0.1.0/linux_amd64/`
 
 ### 3. Test with Terraform
 
@@ -72,7 +72,7 @@ Create a test Terraform configuration:
 terraform {
   required_providers {
     dockhand = {
-      source  = "finsys/dockhand"
+      source  = "ramorous/dockhand"
       version = "0.1.0"
     }
   }
@@ -121,7 +121,7 @@ Then set `TF_REATTACH_PROVIDERS` environment variable and run Terraform.
 Make sure the provider is installed in the correct location:
 
 ```bash
-ls -la ~/.terraform.d/plugins/registry.terraform.io/finsys/dockhand/0.1.0/linux_amd64/
+ls -la ~/.terraform.d/plugins/registry.terraform.io/ramorous/dockhand/0.1.0/linux_amd64/
 ```
 
 ### "Connection refused"
