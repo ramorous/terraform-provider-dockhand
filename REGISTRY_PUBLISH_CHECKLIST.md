@@ -41,7 +41,6 @@ This file tracks the status and requirements for publishing the Terraform Provid
 - [x] GPG_PRIVATE_KEY secret added to GitHub repository
 - [x] GPG_PASSPHRASE secret added to GitHub repository
 - [x] .goreleaser.yaml configured for signing
-- [x] GPG fingerprint configured: 16EFA2EDC80692B493D06D789C4A6EA0333DD49B
 
 ## Step-by-Step Publishing Instructions
 
