@@ -13,8 +13,8 @@ lint:
 	golangci-lint run
 
 install: build
-	mkdir -p ~/.terraform.d/plugins/registry.terraform.io/finsys/dockhand/0.1.0/linux_amd64/
-	cp terraform-provider-dockhand ~/.terraform.d/plugins/registry.terraform.io/finsys/dockhand/0.1.0/linux_amd64/
+	mkdir -p ~/.terraform.d/plugins/registry.terraform.io/ramorous/dockhand/0.1.0/linux_amd64/
+	cp terraform-provider-dockhand ~/.terraform.d/plugins/registry.terraform.io/ramorous/dockhand/0.1.0/linux_amd64/
 
 doc:
 	go run github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs generate
