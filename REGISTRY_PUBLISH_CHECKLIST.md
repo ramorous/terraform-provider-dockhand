@@ -37,9 +37,9 @@ This file tracks the status and requirements for publishing the Terraform Provid
 
 ## GPG Signing Setup (Required for Registry)
 
-- [ ] GPG key created and exported
-- [ ] GPG_PRIVATE_KEY secret added to GitHub repository
-- [ ] GPG_PASSPHRASE secret added to GitHub repository
+- [x] GPG key created and exported
+- [x] GPG_PRIVATE_KEY secret added to GitHub repository
+- [x] GPG_PASSPHRASE secret added to GitHub repository
 - [ ] .goreleaser.yaml configured for signing
 
 ## Step-by-Step Publishing Instructions
