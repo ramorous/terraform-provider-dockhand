@@ -1,0 +1,64 @@
+project_name: terraform-provider-dockhand
+env:
+  - GO111MODULE=on
+
+before:
+  hooks:
+    - go mod download
+
+builds:
+  - env:
+      - CGO_ENABLED=0
+    mod_timestamp: '{{ .CommitTimestamp }}'
+    flags:
+      - -trimpath
+    ldflags:
+      - -s -w -X main.version={{ .Version }}
+    goos:
+      - darwin
+      - freebsd
+      - linux
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    ignore:
+      - goos: windows
+        goarch: arm64
+      - goos: freebsd
+        goarch: arm64
+    binary: 'terraform-provider-dockhand_v{{ .Version }}_{{ .Os }}_{{ .Arch }}'
+
+archives:
+  - format: zip
+    name_template: 'terraform-provider-dockhand_{{ .Version }}_{{ .Os }}_{{ .Arch }}'
+    files:
+      - none*
+
+checksum:
+  name_template: 'terraform-provider-dockhand_{{ .Version }}_SHA256SUMS'
+  algorithm: sha256
+
+signs:
+  - artifacts: checksum
+    args:
+      - '--batch'
+      - '--local-user'
+      - '{{ .Env.GPG_FINGERPRINT }}'
+      - '--output'
+      - '${signature}'
+      - '--detach-sign'
+      - '${artifact}'
+
+release:
+  github:
+    owner: ramorous
+    name: terraform-provider-dockhand
+  draft: false
+  prerelease: auto
+  mode: append
+  name_template: '{{ .ReleaseURL }}'
+  footer: |
+    ## Resources:
+    - [Terraform Dockhand Provider Documentation](https://registry.terraform.io/providers/ramorous/dockhand)
+    - [Dockhand API Repository](https://github.com/ramorous/dockhand)

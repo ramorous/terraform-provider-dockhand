@@ -35,3 +35,65 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+# Binary outputs
+terraform-provider-dockhand
+terraform-provider-dockhand_v*
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Build outputs
+dist/
+bin/
+*.zip
+
+# Go build cache
+.cache/
+
+# Test and coverage
+*.out
+*.test
+coverage.txt
+.coverage
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment files
+.env
+.env.local
+
+# Development
+debug
+__debug_bin
+
+# GoReleaser
+goreleaser.log
+
+# OS specific
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# IDE specific
+*.sublime-project
+*.sublime-workspace
+.jetbrains
+.vscode/launch.json
+
+# Documentation
+docs/
