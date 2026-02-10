@@ -40,6 +40,15 @@ checksum:
   algorithm: sha256
 
 signs:
+  - artifacts: archive
+    args:
+      - '--batch'
+      - '--local-user'
+      - '{{ .Env.GPG_FINGERPRINT }}'
+      - '--output'
+      - '${signature}'
+      - '--detach-sign'
+      - '${artifact}'
   - artifacts: checksum
     args:
       - '--batch'
