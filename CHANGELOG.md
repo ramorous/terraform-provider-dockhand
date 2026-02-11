@@ -5,6 +5,20 @@ All notable changes to the Terraform Provider for Dockhand will be documented in
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+
+## [0.1.17] - 2026-02-11
+
+### Breaking
+- Replaced provider configuration attribute `api_key` with `cookie`. Users must update provider blocks and environment variables accordingly.
+
+### Changed
+- Authentication now uses a session cookie sent in the `Cookie` header rather than a bearer API key.
+- Updated client to set the `Cookie` header instead of `Authorization: Bearer`.
+- Updated examples, documentation, and tests to use `cookie` and `DOCKHAND_COOKIE`.
+
+### Notes
+- This is a breaking change for provider configuration: configurations using `api_key` or `DOCKHAND_API_KEY` must be migrated to `cookie` or `DOCKHAND_COOKIE`.
+
 ## [0.1.6] - 2024-02-11
 
 ### Fixed
@@ -46,19 +60,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Testing documentation with troubleshooting
 - Project structure documentation
 - Implementation summary with architecture details
-
-## Upcoming
-
-### Planned for Future Releases
-
-- Support for registry authentication
-- Advanced filtering on data sources
-- Resource import support
-- Provider version constraints
-- Additional container orchestration features
-- Performance optimizations
-- Enhanced error messages
-- SDK improvements
 
 ---
 
