@@ -29,3 +29,10 @@ resource "dockhand_environment" "remote" {
     team     = "platform"
   }
 }
+
+# Example: Read all environments
+data "dockhand_environments" "all" {}
+
+output "environment_ids" {
+  value = [for e in data.dockhand_environments.all.environments : e.id]
+}
