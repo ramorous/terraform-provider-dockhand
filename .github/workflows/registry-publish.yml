@@ -17,8 +17,18 @@ jobs:
         with:
           go-version-file: go.mod
 
+      - name: Install tfplugindocs
+        run: |
+          go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@latest
+
       - name: Generate documentation
-        run: go run github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs generate
+        run: |
+          TFPLUGINDOCS=$(go env GOPATH)/bin/tfplugindocs
+          if [ ! -x "$TFPLUGINDOCS" ]; then
+            echo "tfplugindocs not found at $TFPLUGINDOCS" >&2
+            exit 1
+          fi
+          "$TFPLUGINDOCS" generate
 
       - name: Commit documentation if changed
         run: |
