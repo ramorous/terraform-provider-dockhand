@@ -77,11 +77,11 @@ gpg --list-secret-keys --keyid-format LONG
 # Update CHANGELOG.md
 # Commit changes
 git add .
-git commit -m "docs: prepare release v0.1.0"
+git commit -m "docs: prepare release v0.1.1"
 
 # Create and push version tag
-git tag -a v0.1.0 -m "Release version 0.1.0"
-git push origin v0.1.0
+git tag -a v0.1.1 -m "Release version 0.1.1"
+git push origin v0.1.1
 
 # GitHub Actions will automatically:
 # - Build binaries for all platforms
