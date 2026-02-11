@@ -19,4 +19,3 @@ Provider for managing Docker containers and compose stacks through Dockhand API.
 - `api_key` (String, Sensitive) API key for authentication with Dockhand. Can also be provided via `DOCKHAND_API_KEY` environment variable.
 - `endpoint` (String) The Dockhand API endpoint URL. Can also be provided via `DOCKHAND_ENDPOINT` environment variable.
 - `timeout` (Number) Timeout in seconds for API requests. Defaults to 30 seconds.
-<!-- regenerated: 2026-02-11 -->
