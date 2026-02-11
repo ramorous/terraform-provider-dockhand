@@ -40,7 +40,8 @@ checksum:
   algorithm: sha256
 
 signs:
-  - artifacts: archive
+  - id: archive-sign
+    artifacts: archive
     args:
       - '--batch'
       - '--local-user'
@@ -49,7 +50,8 @@ signs:
       - '${signature}'
       - '--detach-sign'
       - '${artifact}'
-  - artifacts: checksum
+  - id: checksum-sign
+    artifacts: checksum
     args:
       - '--batch'
       - '--local-user'
