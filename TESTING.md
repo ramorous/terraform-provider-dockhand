@@ -27,12 +27,12 @@ Acceptance tests interact with a real Dockhand API. Before running:
    docker run -p 3000:3000 dockhand:latest
    ```
 
-2. Get an API key from the Dockhand UI (or use the default if configured)
+2. Obtain a session cookie from the Dockhand UI (or use the default if configured).
 
 3. Run acceptance tests:
    ```bash
    DOCKHAND_ENDPOINT="http://localhost:3000" \
-   DOCKHAND_API_KEY="your-api-key" \
+   DOCKHAND_COOKIE="your-session-cookie" \
    make testacc
    ```
 
@@ -80,7 +80,7 @@ terraform {
 
 provider "dockhand" {
   endpoint = "http://localhost:3000"
-  api_key  = "test-key"
+  cookie   = "test-session-cookie"
 }
 
 resource "dockhand_environment" "test" {
@@ -129,14 +129,14 @@ ls -la ~/.terraform.d/plugins/registry.terraform.io/ramorous/dockhand/0.1.0/linu
 Ensure:
 1. Dockhand instance is running
 2. Endpoint URL is correct
-3. API key is valid
+3. Session cookie is valid
 
 ### "Invalid API response"
 
 Check:
 1. Dockhand version compatibility
 2. API endpoint path correctness
-3. API key permissions
+3. Authentication/cookie permissions
 
 ## Performance Testing
 

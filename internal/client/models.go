@@ -36,18 +36,18 @@ type ContainerMount struct {
 
 // ComposeStack represents a Docker Compose stack
 type ComposeStack struct {
-	ID             string                 `json:"id"`
-	Name           string                 `json:"name"`
-	Compose        string                 `json:"compose"`
-	Status         string                 `json:"status"`
-	DesiredStatus  string                 `json:"desired_status,omitempty"`
-	Services       map[string]ComposeService `json:"services,omitempty"`
-	Labels         map[string]string      `json:"labels,omitempty"`
-	GitRepo        *GitRepository         `json:"git_repo,omitempty"`
-	AutoSync       bool                   `json:"auto_sync,omitempty"`
-	WebhookToken   string                 `json:"webhook_token,omitempty"`
-	CreatedAt      string                 `json:"created_at,omitempty"`
-	UpdatedAt      string                 `json:"updated_at,omitempty"`
+	ID            string                    `json:"id"`
+	Name          string                    `json:"name"`
+	Compose       string                    `json:"compose"`
+	Status        string                    `json:"status"`
+	DesiredStatus string                    `json:"desired_status,omitempty"`
+	Services      map[string]ComposeService `json:"services,omitempty"`
+	Labels        map[string]string         `json:"labels,omitempty"`
+	GitRepo       *GitRepository            `json:"git_repo,omitempty"`
+	AutoSync      bool                      `json:"auto_sync,omitempty"`
+	WebhookToken  string                    `json:"webhook_token,omitempty"`
+	CreatedAt     string                    `json:"created_at,omitempty"`
+	UpdatedAt     string                    `json:"updated_at,omitempty"`
 }
 
 // ComposeService represents a service in a Compose stack
@@ -60,9 +60,9 @@ type ComposeService struct {
 
 // GitRepository represents a Git repository configuration
 type GitRepository struct {
-	URL    string `json:"url"`
-	Branch string `json:"branch,omitempty"`
-	Path   string `json:"path,omitempty"`
+	URL    string   `json:"url"`
+	Branch string   `json:"branch,omitempty"`
+	Path   string   `json:"path,omitempty"`
 	Auth   *GitAuth `json:"auth,omitempty"`
 }
 
@@ -75,17 +75,17 @@ type GitAuth struct {
 
 // Environment represents a Docker environment/host
 type Environment struct {
-	ID           string                 `json:"id"`
-	Name         string                 `json:"name"`
-	Type         string                 `json:"type"` // "local", "ssh", "docker_socket"
-	Host         string                 `json:"host,omitempty"`
-	Port         int                    `json:"port,omitempty"`
-	Auth         *EnvironmentAuth       `json:"auth,omitempty"`
-	Labels       map[string]string      `json:"labels,omitempty"`
-	Active       bool                   `json:"active,omitempty"`
-	DockerInfo   *DockerInfo            `json:"docker_info,omitempty"`
-	CreatedAt    string                 `json:"created_at,omitempty"`
-	UpdatedAt    string                 `json:"updated_at,omitempty"`
+	ID         string            `json:"id"`
+	Name       string            `json:"name"`
+	Type       string            `json:"type"` // "local", "ssh", "docker_socket"
+	Host       string            `json:"host,omitempty"`
+	Port       int               `json:"port,omitempty"`
+	Auth       *EnvironmentAuth  `json:"auth,omitempty"`
+	Labels     map[string]string `json:"labels,omitempty"`
+	Active     bool              `json:"active,omitempty"`
+	DockerInfo *DockerInfo       `json:"docker_info,omitempty"`
+	CreatedAt  string            `json:"created_at,omitempty"`
+	UpdatedAt  string            `json:"updated_at,omitempty"`
 }
 
 // EnvironmentAuth represents authentication for an environment
@@ -99,34 +99,34 @@ type EnvironmentAuth struct {
 
 // DockerInfo represents Docker daemon information
 type DockerInfo struct {
-	Version        string `json:"version"`
-	APIVersion     string `json:"api_version"`
-	OS             string `json:"os"`
-	Architecture   string `json:"architecture"`
-	Containers     int    `json:"containers"`
-	ContainersRunning int `json:"containers_running"`
-	ContainersPaused int `json:"containers_paused"`
-	ContainersStopped int `json:"containers_stopped"`
-	Images         int    `json:"images"`
+	Version           string `json:"version"`
+	APIVersion        string `json:"api_version"`
+	OS                string `json:"os"`
+	Architecture      string `json:"architecture"`
+	Containers        int    `json:"containers"`
+	ContainersRunning int    `json:"containers_running"`
+	ContainersPaused  int    `json:"containers_paused"`
+	ContainersStopped int    `json:"containers_stopped"`
+	Images            int    `json:"images"`
 }
 
 // Network represents a Docker network
 type Network struct {
-	ID     string                 `json:"id"`
-	Name   string                 `json:"name"`
-	Type   string                 `json:"type"` // "bridge", "overlay", "host", "null"
-	Driver string                 `json:"driver"`
-	Scope  string                 `json:"scope"`
-	Labels map[string]string      `json:"labels,omitempty"`
-	IPAM   *NetworkIPAM           `json:"ipam,omitempty"`
+	ID         string                 `json:"id"`
+	Name       string                 `json:"name"`
+	Type       string                 `json:"type"` // "bridge", "overlay", "host", "null"
+	Driver     string                 `json:"driver"`
+	Scope      string                 `json:"scope"`
+	Labels     map[string]string      `json:"labels,omitempty"`
+	IPAM       *NetworkIPAM           `json:"ipam,omitempty"`
 	Containers map[string]interface{} `json:"containers,omitempty"`
 }
 
 // NetworkIPAM represents IPAM configuration for a network
 type NetworkIPAM struct {
-	Driver  string                 `json:"driver"`
-	Config  []NetworkIPAMConfig    `json:"config,omitempty"`
-	Options map[string]string      `json:"options,omitempty"`
+	Driver  string              `json:"driver"`
+	Config  []NetworkIPAMConfig `json:"config,omitempty"`
+	Options map[string]string   `json:"options,omitempty"`
 }
 
 // NetworkIPAMConfig represents IPAM configuration
@@ -137,33 +137,33 @@ type NetworkIPAMConfig struct {
 
 // Volume represents a Docker volume
 type Volume struct {
-	ID        string                 `json:"id"`
-	Name      string                 `json:"name"`
-	Driver    string                 `json:"driver"`
-	Mountpoint string                `json:"mountpoint"`
-	Labels    map[string]string      `json:"labels,omitempty"`
-	Options   map[string]string      `json:"options,omitempty"`
-	Size      int64                  `json:"size,omitempty"`
-	Containers []string              `json:"containers,omitempty"`
+	ID         string            `json:"id"`
+	Name       string            `json:"name"`
+	Driver     string            `json:"driver"`
+	Mountpoint string            `json:"mountpoint"`
+	Labels     map[string]string `json:"labels,omitempty"`
+	Options    map[string]string `json:"options,omitempty"`
+	Size       int64             `json:"size,omitempty"`
+	Containers []string          `json:"containers,omitempty"`
 }
 
 // Image represents a Docker image
 type Image struct {
-	ID          string            `json:"id"`
-	RepoTags    []string          `json:"repo_tags,omitempty"`
-	RepoDigests []string          `json:"repo_digests,omitempty"`
-	Size        int64             `json:"size"`
-	Created     string            `json:"created"`
-	Labels      map[string]string `json:"labels,omitempty"`
-	Architecture string           `json:"architecture,omitempty"`
-	OS          string            `json:"os,omitempty"`
+	ID           string            `json:"id"`
+	RepoTags     []string          `json:"repo_tags,omitempty"`
+	RepoDigests  []string          `json:"repo_digests,omitempty"`
+	Size         int64             `json:"size"`
+	Created      string            `json:"created"`
+	Labels       map[string]string `json:"labels,omitempty"`
+	Architecture string            `json:"architecture,omitempty"`
+	OS           string            `json:"os,omitempty"`
 }
 
 // ImagePullRequest represents an image pull request
 type ImagePullRequest struct {
-	Image      string `json:"image"`
-	Registry   string `json:"registry,omitempty"`
-	Auth       *ImageAuth `json:"auth,omitempty"`
+	Image    string     `json:"image"`
+	Registry string     `json:"registry,omitempty"`
+	Auth     *ImageAuth `json:"auth,omitempty"`
 }
 
 // ImageAuth represents image registry authentication

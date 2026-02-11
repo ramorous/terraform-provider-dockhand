@@ -2,6 +2,10 @@
 
 A comprehensive Terraform provider for managing Docker resources through the [Dockhand API](https://dockhand.pro/). This provider enables you to manage containers, Docker Compose stacks, networks, volumes, images, and environments directly from Terraform.
 
+## Provider Still Under Development
+
+Use at your own risk. Currently no maintenance or support for the time beign.
+
 ## Features
 
 - **Container Management**: Create, update, and delete containers with full configuration support
@@ -54,7 +58,7 @@ terraform {
 
 provider "dockhand" {
   endpoint = "http://localhost:3000"  # Dockhand API endpoint
-  api_key  = "your-api-key"           # API authentication key
+  cookie   = "your-session-cookie"    # Session cookie for authentication
   timeout  = 30                       # Request timeout in seconds
 }
 ```
@@ -65,7 +69,7 @@ You can also configure the provider using environment variables:
 
 ```bash
 export DOCKHAND_ENDPOINT="http://localhost:3000"
-export DOCKHAND_API_KEY="your-api-key"
+export DOCKHAND_COOKIE="your-session-cookie"
 ```
 
 ## Resources

@@ -34,10 +34,10 @@ type ContainersDataSourceModel struct {
 
 // ContainerData describes a container in the data source
 type ContainerData struct {
-	ID   types.String `tfsdk:"id"`
-	Name types.String `tfsdk:"name"`
-	Image types.String `tfsdk:"image"`
-	State types.String `tfsdk:"state"`
+	ID     types.String `tfsdk:"id"`
+	Name   types.String `tfsdk:"name"`
+	Image  types.String `tfsdk:"image"`
+	State  types.String `tfsdk:"state"`
 	Status types.String `tfsdk:"status"`
 }
 

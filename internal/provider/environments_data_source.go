@@ -4,9 +4,9 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
-	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 	"github.com/ramorous/terraform-provider-dockhand/internal/client"
@@ -52,10 +52,10 @@ func (d *EnvironmentsDataSource) Schema(ctx context.Context, _ datasource.Schema
 				Computed: true,
 				NestedObject: schema.NestedAttributeObject{
 					Attributes: map[string]schema.Attribute{
-						"id": schema.StringAttribute{Computed: true},
-						"name": schema.StringAttribute{Computed: true},
-						"type": schema.StringAttribute{Computed: true},
-						"host": schema.StringAttribute{Computed: true},
+						"id":     schema.StringAttribute{Computed: true},
+						"name":   schema.StringAttribute{Computed: true},
+						"type":   schema.StringAttribute{Computed: true},
+						"host":   schema.StringAttribute{Computed: true},
 						"active": schema.BoolAttribute{Computed: true},
 					},
 				},
@@ -115,10 +115,10 @@ func (d *EnvironmentsDataSource) Read(ctx context.Context, req datasource.ReadRe
 
 	environmentsValue, diags := types.ListValueFrom(ctx, types.ObjectType{
 		AttrTypes: map[string]attr.Type{
-			"id": types.StringType,
-			"name": types.StringType,
-			"type": types.StringType,
-			"host": types.StringType,
+			"id":     types.StringType,
+			"name":   types.StringType,
+			"type":   types.StringType,
+			"host":   types.StringType,
 			"active": types.BoolType,
 		},
 	}, envList)
@@ -134,5 +134,3 @@ func (d *EnvironmentsDataSource) Read(ctx context.Context, req datasource.ReadRe
 	diags = resp.State.Set(ctx, &state)
 	resp.Diagnostics.Append(diags...)
 }
-
-

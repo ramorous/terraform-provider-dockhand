@@ -28,21 +28,21 @@ type ContainerResource struct {
 
 // ContainerResourceModel describes the resource data model.
 type ContainerResourceModel struct {
-	ID            types.String `tfsdk:"id"`
-	EnvironmentID types.String `tfsdk:"environment_id"`
-	Name          types.String `tfsdk:"name"`
-	Image         types.String `tfsdk:"image"`
-	State         types.String `tfsdk:"state"`
-	Status        types.String `tfsdk:"status"`
-	Ports         types.List   `tfsdk:"ports"`
-	Mounts        types.List   `tfsdk:"mounts"`
-	Env           types.List   `tfsdk:"env"`
-	Labels        types.Map    `tfsdk:"labels"`
-	Command       types.String `tfsdk:"command"`
-	Args          types.List   `tfsdk:"args"`
-	Memory        types.Int64  `tfsdk:"memory"`
+	ID            types.String  `tfsdk:"id"`
+	EnvironmentID types.String  `tfsdk:"environment_id"`
+	Name          types.String  `tfsdk:"name"`
+	Image         types.String  `tfsdk:"image"`
+	State         types.String  `tfsdk:"state"`
+	Status        types.String  `tfsdk:"status"`
+	Ports         types.List    `tfsdk:"ports"`
+	Mounts        types.List    `tfsdk:"mounts"`
+	Env           types.List    `tfsdk:"env"`
+	Labels        types.Map     `tfsdk:"labels"`
+	Command       types.String  `tfsdk:"command"`
+	Args          types.List    `tfsdk:"args"`
+	Memory        types.Int64   `tfsdk:"memory"`
 	CPUs          types.Float64 `tfsdk:"cpus"`
-	RestartPolicy types.String `tfsdk:"restart_policy"`
+	RestartPolicy types.String  `tfsdk:"restart_policy"`
 }
 
 // Metadata returns the resource type name.

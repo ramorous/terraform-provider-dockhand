@@ -28,13 +28,13 @@ type VolumeResource struct {
 
 // VolumeResourceModel describes the resource data model.
 type VolumeResourceModel struct {
-	ID           types.String `tfsdk:"id"`
+	ID            types.String `tfsdk:"id"`
 	EnvironmentID types.String `tfsdk:"environment_id"`
-	Name         types.String `tfsdk:"name"`
-	Driver       types.String `tfsdk:"driver"`
-	Mountpoint   types.String `tfsdk:"mountpoint"`
-	Labels       types.Map    `tfsdk:"labels"`
-	Options      types.Map    `tfsdk:"options"`
+	Name          types.String `tfsdk:"name"`
+	Driver        types.String `tfsdk:"driver"`
+	Mountpoint    types.String `tfsdk:"mountpoint"`
+	Labels        types.Map    `tfsdk:"labels"`
+	Options       types.Map    `tfsdk:"options"`
 }
 
 // Metadata returns the resource type name.

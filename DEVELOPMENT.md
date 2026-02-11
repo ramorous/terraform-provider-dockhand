@@ -67,8 +67,8 @@ terraform {
 }
 
 provider "dockhand" {
-  api_url = "http://localhost:3000"
-  api_key = "your-api-key"
+  endpoint = "http://localhost:3000"
+  cookie   = "your-session-cookie"
 }
 
 # Your resources here
@@ -106,7 +106,7 @@ Requires a running Dockhand API instance:
 ```bash
 # Set environment variables
 export DOCKHAND_API_URL="http://localhost:3000"
-export DOCKHAND_API_KEY="your-api-key"
+export DOCKHAND_COOKIE="your-session-cookie"
 
 # Run acceptance tests
 TF_ACC=1 go test -v ./...

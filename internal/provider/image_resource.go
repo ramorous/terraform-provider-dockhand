@@ -28,15 +28,15 @@ type ImageResource struct {
 
 // ImageResourceModel describes the resource data model.
 type ImageResourceModel struct {
-	ID           types.String `tfsdk:"id"`
+	ID            types.String `tfsdk:"id"`
 	EnvironmentID types.String `tfsdk:"environment_id"`
-	RepoTags     types.List   `tfsdk:"repo_tags"`
-	RepoDigests  types.List   `tfsdk:"repo_digests"`
-	Size         types.Int64  `tfsdk:"size"`
-	Created      types.String `tfsdk:"created"`
-	Labels       types.Map    `tfsdk:"labels"`
-	Architecture types.String `tfsdk:"architecture"`
-	OS           types.String `tfsdk:"os"`
+	RepoTags      types.List   `tfsdk:"repo_tags"`
+	RepoDigests   types.List   `tfsdk:"repo_digests"`
+	Size          types.Int64  `tfsdk:"size"`
+	Created       types.String `tfsdk:"created"`
+	Labels        types.Map    `tfsdk:"labels"`
+	Architecture  types.String `tfsdk:"architecture"`
+	OS            types.String `tfsdk:"os"`
 }
 
 // Metadata returns the resource type name.

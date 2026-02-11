@@ -37,7 +37,7 @@ type DockhandProvider struct {
 // DockhandProviderModel describes the provider data model.
 type DockhandProviderModel struct {
 	Endpoint types.String `tfsdk:"endpoint"`
-	ApiKey   types.String `tfsdk:"api_key"`
+	Cookie   types.String `tfsdk:"cookie"`
 	Timeout  types.Int64  `tfsdk:"timeout"`
 }
 
@@ -56,8 +56,8 @@ func (p *DockhandProvider) Schema(ctx context.Context, _ provider.SchemaRequest,
 				MarkdownDescription: "The Dockhand API endpoint URL. Can also be provided via `DOCKHAND_ENDPOINT` environment variable.",
 				Optional:            true,
 			},
-			"api_key": schema.StringAttribute{
-				MarkdownDescription: "API key for authentication with Dockhand. Can also be provided via `DOCKHAND_API_KEY` environment variable.",
+			"cookie": schema.StringAttribute{
+				MarkdownDescription: "Session cookie for authentication with Dockhand. Can also be provided via `DOCKHAND_COOKIE` environment variable.",
 				Optional:            true,
 				Sensitive:           true,
 			},
@@ -93,8 +93,8 @@ func (p *DockhandProvider) Configure(ctx context.Context, req provider.Configure
 		config.Endpoint = types.StringValue(os.Getenv("DOCKHAND_ENDPOINT"))
 	}
 
-	if config.ApiKey.IsNull() {
-		config.ApiKey = types.StringValue(os.Getenv("DOCKHAND_API_KEY"))
+	if config.Cookie.IsNull() {
+		config.Cookie = types.StringValue(os.Getenv("DOCKHAND_COOKIE"))
 	}
 
 	if config.Timeout.IsNull() {
@@ -113,12 +113,12 @@ func (p *DockhandProvider) Configure(ctx context.Context, req provider.Configure
 		)
 	}
 
-	if config.ApiKey.IsNull() || config.ApiKey.ValueString() == "" {
+	if config.Cookie.IsNull() || config.Cookie.ValueString() == "" {
 		resp.Diagnostics.AddAttributeError(
-			path.Root("api_key"),
-			"Missing Dockhand API Key",
-			"The provider cannot create the Dockhand API client as there is a missing or empty value for the Dockhand API key. "+
-				"Set the api_key value in the configuration or use the DOCKHAND_API_KEY environment variable. "+
+			path.Root("cookie"),
+			"Missing Dockhand authentication cookie",
+			"The provider cannot create the Dockhand API client as there is a missing or empty session cookie. "+
+				"Set the cookie value in the configuration or use the DOCKHAND_COOKIE environment variable. "+
 				"If either is already set, ensure the value is not empty.",
 		)
 	}
@@ -133,7 +133,7 @@ func (p *DockhandProvider) Configure(ctx context.Context, req provider.Configure
 
 	clientConfig := &client.Config{
 		Endpoint: config.Endpoint.ValueString(),
-		APIKey:   config.ApiKey.ValueString(),
+		Cookie:   config.Cookie.ValueString(),
 		Timeout:  int(config.Timeout.ValueInt64()),
 	}
 
@@ -168,5 +168,16 @@ func (p *DockhandProvider) DataSources(ctx context.Context) []func() datasource.
 		NewNetworksDataSource,
 		NewVolumesDataSource,
 		NewImagesDataSource,
+	}
+}
+
+// BuildClientConfigFromModel creates a client.Config from the provider model.
+// This helper is useful for testing and for constructing the client outside
+// of the full Configure flow.
+func BuildClientConfigFromModel(m DockhandProviderModel) *client.Config {
+	return &client.Config{
+		Endpoint: m.Endpoint.ValueString(),
+		Cookie:   m.Cookie.ValueString(),
+		Timeout:  int(m.Timeout.ValueInt64()),
 	}
 }

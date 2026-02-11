@@ -255,6 +255,8 @@ Public functions should have comments explaining their purpose.
 
 Place unit tests in `*_test.go` files:
 
+When preparing releases update `CHANGELOG.md` and use `scripts/publish_v0.1.17.sh` to tag and push release v0.1.17.
+
 ```go
 func TestNewResource_Create(t *testing.T) {
 	// Test implementation

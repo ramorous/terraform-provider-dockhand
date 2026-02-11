@@ -6,7 +6,7 @@ Get up and running with the Terraform Provider for Dockhand in minutes!
 
 - Terraform >= 1.0
 - A running Dockhand instance
-- Dockhand API key
+- Dockhand session cookie
 
 ## Installation
 
@@ -55,7 +55,7 @@ terraform {
 
 provider "dockhand" {
   endpoint = "http://localhost:3000"  # Your Dockhand endpoint
-  api_key  = var.dockhand_api_key
+  cookie   = var.dockhand_cookie
   timeout  = 30
 }
 ```
@@ -63,14 +63,14 @@ provider "dockhand" {
 Create `terraform.tfvars`:
 
 ```hcl
-dockhand_api_key = "your-api-key-here"
+dockhand_cookie = "your-session-cookie-here"
 ```
 
 Or use environment variables:
 
 ```bash
 export DOCKHAND_ENDPOINT="http://localhost:3000"
-export DOCKHAND_API_KEY="your-api-key"
+export DOCKHAND_COOKIE="your-session-cookie"
 ```
 
 ## First Configuration
@@ -261,12 +261,12 @@ Check:
 2. Endpoint URL is correct
 3. Network connectivity
 
-### "API Key is invalid"
+### "Session cookie is invalid"
 
 Verify:
-1. API key is correct
-2. API key has not expired
-3. API key has necessary permissions
+1. Session cookie is correct
+2. Session cookie has not expired
+3. Session cookie has necessary permissions
 
 ## Next Steps
 
@@ -286,7 +286,7 @@ Verify:
 
 1. **Use Variables:** Replace hardcoded values with variables
    ```hcl
-   variable "api_key" {
+   variable "cookie" {
      sensitive = true
    }
    ```

@@ -9,7 +9,7 @@ terraform {
 
 provider "dockhand" {
   endpoint = "http://localhost:3000"
-  api_key  = "your-api-key-here"
+  cookie   = "your-session-cookie-here"
   timeout  = 30
 }
 

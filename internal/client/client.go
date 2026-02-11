@@ -10,9 +10,9 @@ import (
 
 // Config holds the configuration for the Dockhand API client
 type Config struct {
-	Endpoint string
-	APIKey   string
-	Timeout  int
+	Endpoint      string
+	Cookie        string
+	Timeout       int
 	TLSSkipVerify bool
 }
 
@@ -26,7 +26,7 @@ type Client struct {
 func NewClient(config *Config) *Client {
 	httpClient := resty.New().
 		SetBaseURL(config.Endpoint).
-		SetHeader("Authorization", fmt.Sprintf("Bearer %s", config.APIKey)).
+		SetHeader("Cookie", config.Cookie).
 		SetHeader("Content-Type", "application/json").
 		SetTimeout(time.Duration(config.Timeout) * time.Second)
 

@@ -28,15 +28,15 @@ type EnvironmentResource struct {
 
 // EnvironmentResourceModel describes the resource data model.
 type EnvironmentResourceModel struct {
-	ID        types.String `tfsdk:"id"`
-	Name      types.String `tfsdk:"name"`
-	Type      types.String `tfsdk:"type"`
-	Host      types.String `tfsdk:"host"`
-	Port      types.Int64  `tfsdk:"port"`
-	Labels    types.Map    `tfsdk:"labels"`
-	Active    types.Bool   `tfsdk:"active"`
-	CreatedAt types.String `tfsdk:"created_at"`
-	UpdatedAt types.String `tfsdk:"updated_at"`
+	ID         types.String `tfsdk:"id"`
+	Name       types.String `tfsdk:"name"`
+	Type       types.String `tfsdk:"type"`
+	Host       types.String `tfsdk:"host"`
+	Port       types.Int64  `tfsdk:"port"`
+	Labels     types.Map    `tfsdk:"labels"`
+	Active     types.Bool   `tfsdk:"active"`
+	CreatedAt  types.String `tfsdk:"created_at"`
+	UpdatedAt  types.String `tfsdk:"updated_at"`
 	DockerInfo types.Object `tfsdk:"docker_info"`
 }
 

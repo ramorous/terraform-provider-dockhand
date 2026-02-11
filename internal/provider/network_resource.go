@@ -28,13 +28,13 @@ type NetworkResource struct {
 
 // NetworkResourceModel describes the resource data model.
 type NetworkResourceModel struct {
-	ID           types.String `tfsdk:"id"`
+	ID            types.String `tfsdk:"id"`
 	EnvironmentID types.String `tfsdk:"environment_id"`
-	Name         types.String `tfsdk:"name"`
-	Type         types.String `tfsdk:"type"`
-	Driver       types.String `tfsdk:"driver"`
-	Scope        types.String `tfsdk:"scope"`
-	Labels       types.Map    `tfsdk:"labels"`
+	Name          types.String `tfsdk:"name"`
+	Type          types.String `tfsdk:"type"`
+	Driver        types.String `tfsdk:"driver"`
+	Scope         types.String `tfsdk:"scope"`
+	Labels        types.Map    `tfsdk:"labels"`
 }
 
 // Metadata returns the resource type name.

@@ -28,18 +28,18 @@ type ComposeStackResource struct {
 
 // ComposeStackResourceModel describes the resource data model.
 type ComposeStackResourceModel struct {
-	ID             types.String `tfsdk:"id"`
-	EnvironmentID  types.String `tfsdk:"environment_id"`
-	Name           types.String `tfsdk:"name"`
-	Compose        types.String `tfsdk:"compose"`
-	Status         types.String `tfsdk:"status"`
-	DesiredStatus  types.String `tfsdk:"desired_status"`
-	Labels         types.Map    `tfsdk:"labels"`
-	AutoSync       types.Bool   `tfsdk:"auto_sync"`
-	GitRepo        types.Object `tfsdk:"git_repo"`
-	WebhookToken   types.String `tfsdk:"webhook_token"`
-	CreatedAt      types.String `tfsdk:"created_at"`
-	UpdatedAt      types.String `tfsdk:"updated_at"`
+	ID            types.String `tfsdk:"id"`
+	EnvironmentID types.String `tfsdk:"environment_id"`
+	Name          types.String `tfsdk:"name"`
+	Compose       types.String `tfsdk:"compose"`
+	Status        types.String `tfsdk:"status"`
+	DesiredStatus types.String `tfsdk:"desired_status"`
+	Labels        types.Map    `tfsdk:"labels"`
+	AutoSync      types.Bool   `tfsdk:"auto_sync"`
+	GitRepo       types.Object `tfsdk:"git_repo"`
+	WebhookToken  types.String `tfsdk:"webhook_token"`
+	CreatedAt     types.String `tfsdk:"created_at"`
+	UpdatedAt     types.String `tfsdk:"updated_at"`
 }
 
 // Metadata returns the resource type name.
@@ -169,8 +169,8 @@ func (r *ComposeStackResource) Create(ctx context.Context, req resource.CreateRe
 
 	// Create the compose stack
 	stackReq := &client.ComposeStack{
-		Name:    plan.Name.ValueString(),
-		Compose: plan.Compose.ValueString(),
+		Name:     plan.Name.ValueString(),
+		Compose:  plan.Compose.ValueString(),
 		AutoSync: plan.AutoSync.ValueBool(),
 	}
 

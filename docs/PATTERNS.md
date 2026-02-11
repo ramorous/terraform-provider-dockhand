@@ -28,7 +28,7 @@ terraform {
 
 provider "dockhand" {
   api_url = var.dockhand_api_url
-  api_key = var.dockhand_api_key
+  cookie  = var.dockhand_cookie
 }
 ```
 
@@ -38,14 +38,14 @@ Create `terraform.tfvars`:
 
 ```hcl
 dockhand_api_url = "http://localhost:3000"
-dockhand_api_key = "your-api-key-here"
+dockhand_cookie  = "your-session-cookie-here"
 ```
 
 Or set environment variables:
 
 ```bash
 export DOCKHAND_API_URL="http://localhost:3000"
-export DOCKHAND_API_KEY="your-api-key-here"
+export DOCKHAND_COOKIE="your-session-cookie-here"
 ```
 
 ## Environment Management
